@@ -12,15 +12,12 @@
   <script src="script.js" defer></script>
 </head>
 
+
 <body>
-  <button id="theme-toggle" class="theme-toggle">🌙</button>
+  <button id="theme-toggle">🌙</button>
   <header>
     <h1>Spend money of someone else</h1>
   </header>
-
-  <div id="money-container">
-    <h2>Your Budget: <span id="money-display">$1,000,000</span></h2>
-  </div>
 
   <div id="introduction">
     <h1>SPEND ALL OF "API" MONEY</h1>
@@ -29,44 +26,51 @@
   <!-- start of section 1 -->
   <div class="startsection" id="Wolverine">
     <!-- start of 1/3 -->
-    <div class="item">
-      <img src="https://www.torn.com/images/items/261/large.png" alt="Wolverine plushie">
+    <div class="item"">
+      <img src=" https://www.torn.com/images/items/261/large.png">
       <br><span>Wolverine plushie</span>
-      <p class="price">$100</p>
 
       <div class="counter">
         <button onclick="sellItem(PriceWolverine)">-</button>
-        <input type="number" value="0" readonly>
+        <input type="number">
         <button onclick="buyItem(PriceWolverine)">+</button>
-      </div>
-    </div>
+      </div> <!-- end of counter -->
+    </div> <!-- end of 1/3 -->
 
     <!-- start of 2/3 -->
     <div class="item">
-      <img src="https://www.torn.com/images/items/261/large.png" alt="Wolverine plushie">
+      <img src="https://www.torn.com/images/items/261/large.png">
       <br><span>Wolverine plushie</span>
-      <p class="price">$100</p>
 
       <div class="counter">
         <button onclick="sellItem(PriceWolverine)">-</button>
-        <input type="number" value="0" readonly>
+        <input type="number">
         <button onclick="buyItem(PriceWolverine)">+</button>
-      </div>
-    </div>
+      </div> <!-- end of counter -->
+    </div><!-- end of 2/3 -->
 
     <!-- start of 3/3 -->
     <div class="item">
-      <img src="https://www.torn.com/images/items/261/large.png" alt="Wolverine plushie">
+      <img src="https://www.torn.com/images/items/261/large.png">
       <br><span>Wolverine plushie</span>
-      <p class="price">$100</p>
-
       <div class="counter">
+
         <button onclick="sellItem(PriceWolverine)">-</button>
-        <input type="number" value="0" readonly>
+        <input type="number">
         <button onclick="buyItem(PriceWolverine)">+</button>
-      </div>
-    </div>
-  </div>
+      </div> <!-- end of counter -->
+    </div><!-- end of 3/3 -->
+  </div> <!-- end of first section -->
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
