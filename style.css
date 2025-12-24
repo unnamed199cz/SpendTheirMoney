@@ -9,31 +9,30 @@ p {
 
 /* Default light mode */
   :root {
-  --bg-color: #c8d5dd;
-  --text-color: #252e33;
-  --button-bg: #e4e2de;
-  --button-hover-bg: #fdfcfb;
-  --button-text: #000;
+    --bg-color: #c8d5dd;
+    --text-color: #252e33;
+    --button-bg: #e4e2de;
+    --button-hover-bg: #fdfcfb;
+    --button-text: #000;
 }
-[data-theme="dark"] {
-  --bg-color: #182128;           /* page background dark gray/black */
+
+  [data-theme="dark"] {
+  --bg-color: #182128;           /* page background dark*/
   --text-color: #bdbcbc;         /* light text */
   --button-bg: #323335;          /* dark button */
   --button-hover-bg: #525050;    /* hover effect */
   --button-text: #dbe0e5;        /* button text light */
   --button-border: none;
 }
-button.theme-toggle {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 8px 12px;
+.counter button {
+  border-radius: 100%;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-color: var(--button-bg);
-  color: var(--button-text);
-  transition: background-color 0.3s, color 0.3s;
+  width: 30px;
+  height: 30px;
+}
+.disabled button {
+opacity: 0.6;
+cursor: not-allowed;
 }
 /* Apply variables */
 body {
@@ -46,18 +45,22 @@ button {
   background-color: var(--button-bg);
   color: var(--button-text);
   border: var(--button-border);
+  
 }
 button:hover {
   background-color: var(--button-hover-bg)
 }
 button#theme-toggle {
   position: fixed;
-  top: 10px;
-  right: 10px;
-  padding: 8px 12px;
+  text-align:center;
+  top: 0px;
+  right: 0px;
+  padding: 5px;
   border: none;
   border-radius: 5px;
-    cursor: url('images/my-cursor.png'), auto;
+  background:none;
+  font-size: 150%;
+  cursor: pointer;
 }
 
   .startsection {
@@ -65,6 +68,7 @@ button#theme-toggle {
     flex-wrap: wrap;
   }
   .item {
+    margin-top:30px;
     flex: 1 1 300px;
     display: flex;
     justify-content: flex-start;
