@@ -32,3 +32,8 @@ toggleButton.addEventListener('click', () => {
 
   updateToggleIcon();
 });
+
+var money;
+function SpendMoney() {
+ document. getElementsByClassName("SpendMoney").innerHTML = money
+}
