@@ -48,4 +48,4 @@ function sellItem(button) {
 
 document.querySelectorAll('.counter input').forEach(input => {
   input.addEventListener('input', () => {
-    if (input.value < 0) {input.value = ""}})})
+    if (input.value < 0 || tex) {input.value = ""}})})
