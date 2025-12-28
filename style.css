@@ -30,6 +30,9 @@ p {
   width: 30px;
   height: 30px;
 }
+.counter input {
+  type: number;
+}
 .disabled button {
 opacity: 0.6;
 cursor: not-allowed;
