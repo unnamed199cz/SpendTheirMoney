@@ -36,16 +36,26 @@ function OriginalBalance() {
   // do api to get players balance
   //var balance = apicall..
 }
-
 function buyItem(button) {
+  let currentbalance = Number(document.getElementById("balance").textContent)
   const input = button.parentElement.querySelector('input');
-  input.value = Number(input.value || 0) + 1;
+  const priceofitem = Number(document.getElementById("itemprice").textContent);
+  if (currentbalance >= priceofitem) {
+    input.value = Number(input.value || 0) + 1
+    newbalance = currentbalance - priceofitem
+    document.getElementById("balance").textContent =`${newbalance}`}
 }
 function sellItem(button) {
+  let currentbalance = Number(document.getElementById("balance").textContent)
   const input = button.parentElement.querySelector('input');
+  const priceofitem = Number(document.getElementById("itemprice").textContent);
   let value = Number(input.value) || 0;
-  if (value > 0) {input.value = value - 1}}
+  if (value > 0) {
+    input.value = value - 1;
+    newbalance = currentbalance + priceofitem
+    document.getElementById("balance").innerText =`${newbalance}`}
+}
 
 document.querySelectorAll('.counter input').forEach(input => {
   input.addEventListener('input', () => {
-    if (input.value < 0 || tex) {input.value = ""}})})
+    if (input.value < 0) {input.value = ""}})})

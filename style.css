@@ -28,7 +28,7 @@
 opacity: 0.6;
 cursor: not-allowed;
 }
-/* Apply variables */
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -74,15 +74,6 @@ button#theme-toggle {
     max-width: 100%;   /* image fits inside the flex item */
     height: auto;
   }
-#sticky {
-  position: sticky;
-  top: 0;
-  padding: 50px;
-  font-size: 200px;
-  text-align: center;
-  background-color: yellow;
-  margin: 0;          /* ⬅️ klíčová věc */
-}
 h1 {
   text-align: center;
 }
