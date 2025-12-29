@@ -39,7 +39,21 @@ function APIWindow() {
     WindowStatus = false}
 }
 /// API toggle end ------------------------------------------------
-
+/// API function start
+function APICall() {
+  let APIInput = document.getElementById('APIInput').value;
+    if (!(APIInput.length === 16)) 
+      console.log("Not an API")
+    else {
+      fetch(`https://api.torn.com/v2/user/hof?comment=SpendTheirNW&key=${APIInput}`)
+      .then (response => response.json())
+      .catch ((error) => console.log(error))
+      .then (data => {
+        var MoneyOfUser = data.hof.networth.value
+        console.log(`Players networth: ${MoneyOfUser}`)
+        document.getElementById("balance").innerText =`${MoneyOfUser}`})}
+}
+/// API function end
 function OriginalBalance() {
   // do api to get players balance
   //var balance = apicall..
