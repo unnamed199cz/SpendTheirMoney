@@ -7,8 +7,11 @@
     --button-bg: #e4e2de;
     --button-hover-bg: #fdfcfb;
     --button-text: #000;
-    --button-border: none
-    --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=000000')
+    --button-border: none;
+    --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=000000');
+    --APIInput-bg: #ffffff;
+    --APIInput-text: #000000;
+    --APIInput-border-color: #6b6b6b
 }
 
   [data-theme="dark"] {
@@ -18,7 +21,10 @@
   --button-hover-bg: #525050;    /* hover effect */
   --button-text: #dbe0e5;        /* button text light */
   --button-border: none;
-  --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=FFFFFF')
+  --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=FFFFFF');
+  --APIInput-bg: #000000;
+  --APIInput-text: #ffffff;
+  --APIInput-border-color: #3d3d3d
   }
 .counter button {
   border-radius: 100%;
@@ -35,14 +41,13 @@ cursor: not-allowed;
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color 0.8s, color 0.8s;
   font-family: 'Font Awesome 6 Free', sans-serif;
 }
 button {
   background-color: var(--button-bg);
   color: var(--button-text);
   border: var(--button-border);
-  
 }
 button:hover {
   background-color: var(--button-hover-bg)
@@ -50,11 +55,10 @@ button:hover {
 .toprightbuttons {
   display: flex;
   gap: 5px;
-  position: fixed;
-  top: 0px;
-  right: 0px;
+  position: sticky;
+  top:10px;
   text-align:center;
-  padding: 5px;
+  justify-content: right;
   border: none;
   border-radius: 5px;
 }
@@ -64,16 +68,27 @@ button#theme-toggle {
   cursor: pointer;
 }
 button#API {
-  width: 30px;
-  height: 30px;
+  margin-top: 5px;
+  width: 27px;
+  height: 27px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  background-color: blue;
+  background-color: var(--api-button-bg);
   background-image: var(--background-image);
 }
-
+input#APIInput{
+  visibility: hidden;
+  border-style:solid;
+  border-radius: 1px;
+  border-color: var(--APIInput-border-color);
+  background-color: var(--APIInput-bg);
+  color: var(--APIInput-text);
+  position: absolute;
+  margin-right: 0px;
+  margin-top: 37px;
+}
   .startsection {
     display: flex;
     flex-wrap: wrap;

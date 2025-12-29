@@ -29,8 +29,15 @@ toggleButtonTheme.addEventListener('click', () => {
 });
 /// theme toggle end ----------------------------------------------
 /// API toggle start -----------------------------------------------
-const toggleButtonAPI = document.getElementById('API');
-
+var WindowStatus = false;
+function APIWindow() {
+ if (WindowStatus === false) {
+   document.getElementById('APIInput').style.visibility = 'visible';
+   WindowStatus = true}
+  else if (WindowStatus === true) {
+    document.getElementById('APIInput').style.visibility = 'hidden';
+    WindowStatus = false}
+}
 /// API toggle end ------------------------------------------------
 
 function OriginalBalance() {
