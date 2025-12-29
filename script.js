@@ -1,23 +1,21 @@
 /// theme toggle start --------------------------------------------
-const toggleButton = document.getElementById('theme-toggle');
+const toggleButtonTheme = document.getElementById('theme-toggle');
 const root = document.documentElement;
 
 function updateToggleIcon() {
   const isDark = root.getAttribute('data-theme') === 'dark';
-  toggleButton.textContent = isDark ? '☀️' : '🌙';
+  toggleButtonTheme.textContent = isDark ? '☀️' : '🌙';
 }
 
 window.addEventListener('DOMContentLoaded', () => {
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  if(prefersDark && root.getAttribute('data-theme') !== 'dark') {
-    toggleButton.click();
-  } else {
-    updateToggleIcon(); 
-  }
+  if(prefersDark && root.getAttribute('data-theme') !== 'dark') 
+  {toggleButtonTheme.click()} 
+  else {updateToggleIcon()}
 });
 
-toggleButton.addEventListener('click', () => {
+toggleButtonTheme.addEventListener('click', () => {
   const currentTheme = root.getAttribute('data-theme');
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
@@ -30,7 +28,10 @@ toggleButton.addEventListener('click', () => {
   updateToggleIcon();
 });
 /// theme toggle end ----------------------------------------------
+/// API toggle start -----------------------------------------------
+const toggleButtonAPI = document.getElementById('API');
 
+/// API toggle end ------------------------------------------------
 
 function OriginalBalance() {
   // do api to get players balance
