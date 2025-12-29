@@ -70,6 +70,7 @@ button#API {
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+  background-color: blue;
   background-image: var(--background-image);
 }
 
