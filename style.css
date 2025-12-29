@@ -7,9 +7,8 @@
     --button-bg: #e4e2de;
     --button-hover-bg: #fdfcfb;
     --button-text: #000;
-    --button-border: none;
-    --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=000000');
-    --api-button-bg: #4a7ba7;
+    --button-border: none
+    --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=000000')
 }
 
   [data-theme="dark"] {
@@ -19,8 +18,7 @@
   --button-hover-bg: #525050;    /* hover effect */
   --button-text: #dbe0e5;        /* button text light */
   --button-border: none;
-  --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=FFFFFF');
-  --api-button-bg: #1a3a52;
+  --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=FFFFFF')
   }
 .counter button {
   border-radius: 100%;
@@ -47,7 +45,7 @@ button {
   
 }
 button:hover {
-  background-color: var(--button-hover-bg);
+  background-color: var(--button-hover-bg)
 }
 .toprightbuttons {
   display: flex;
@@ -65,16 +63,14 @@ button#theme-toggle {
   font-size: 150%;
   cursor: pointer;
 }
- button#API {
+button#API {
   width: 30px;
   height: 30px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  background-color: var(--api-button-bg);
   background-image: var(--background-image);
-  transition: background-color 0.3s;
 }
 
   .startsection {
