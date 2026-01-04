@@ -8,8 +8,8 @@ function updateToggleIcon() {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; 
+  document.getElementById("balance").textContent = new Intl.NumberFormat().format(Number(document.getElementById("balance").textContent)); //bal format
   if(prefersDark && root.getAttribute('data-theme') !== 'dark') 
   {toggleButtonTheme.click()} 
   else {updateToggleIcon()}
@@ -51,31 +51,31 @@ function APICall() {
       .then (data => {
         var MoneyOfUser = data.hof.networth.value
         console.log(`Players networth: ${MoneyOfUser}`)
-        document.getElementById("balance").innerText =`${MoneyOfUser}`})}
+        document.getElementById("balance").innerText = new Intl.NumberFormat().format(newbalance)
+})}
 }
 /// API function end
-function OriginalBalance() {
-  // do api to get players balance
-  //var balance = apicall..
-}
+
 function buyItem(button) {
-  let currentbalance = Number(document.getElementById("balance").textContent)
+  let currentbalance = Number( document.getElementById("balance").textContent.replace(/[\s,\.]/g, ""))
   const input = button.parentElement.querySelector('input');
-  const priceofitem = Number(document.getElementById("itemprice").textContent);
+  const itemname = input.id
+  const priceofitem = Number(document.getElementById(`itemprice_${itemname}`).textContent);
   if (currentbalance >= priceofitem) {
     input.value = Number(input.value || 0) + 1
     newbalance = currentbalance - priceofitem
-    document.getElementById("balance").textContent =`${newbalance}`}
+    document.getElementById("balance").textContent = new Intl.NumberFormat().format(newbalance)}
 }
 function sellItem(button) {
-  let currentbalance = Number(document.getElementById("balance").textContent)
+  let currentbalance = Number( document.getElementById("balance").textContent.replace(/[\s,\.]/g, ""))
   const input = button.parentElement.querySelector('input');
-  const priceofitem = Number(document.getElementById("itemprice").textContent);
+  const itemname = input.id
+  const priceofitem = Number(document.getElementById(`itemprice_${itemname}`).textContent);
   let value = Number(input.value) || 0;
   if (value > 0) {
     input.value = value - 1;
     newbalance = currentbalance + priceofitem
-    document.getElementById("balance").innerText =`${newbalance}`}
+    document.getElementById("balance").innerText = new Intl.NumberFormat().format(newbalance)}
 }
 
 document.querySelectorAll('.counter input').forEach(input => {

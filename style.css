@@ -11,7 +11,8 @@
     --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=000000');
     --APIInput-bg: #ffffff;
     --APIInput-text: #000000;
-    --APIInput-border-color: #6b6b6b
+    --APIInput-border-color: #6b6b6b;
+    --Transition: background-color 0.8s, color 0.8s;
 }
 
   [data-theme="dark"] {
@@ -24,7 +25,8 @@
   --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=FFFFFF');
   --APIInput-bg: #000000;
   --APIInput-text: #ffffff;
-  --APIInput-border-color: #3d3d3d
+  --APIInput-border-color: #3d3d3d;
+  --Transition: 0.8s;
   }
 .counter button {
   border-radius: 100%;
@@ -41,7 +43,7 @@ cursor: not-allowed;
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: background-color 0.8s, color 0.8s;
+  transition: var(--Transition);
   font-family: 'Font Awesome 6 Free', sans-serif;
 }
 button {
@@ -61,6 +63,14 @@ button:hover {
   justify-content: right;
   border: none;
   border-radius: 5px;
+  z-index: 1500;
+}
+p#wholebalance {
+  background:fixed;
+  background-color: var(--bg-color);
+  transition: var(--Transition);
+  z-index: 1000;
+  pointer-events: none;
 }
 button#theme-toggle {
   background:none;
