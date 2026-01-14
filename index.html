@@ -14,16 +14,16 @@
 </head>
 <body>
   <div class="toprightbuttons">
-  <button title="Button for API input" onclick="APIWindow()" id="API"></button><input id=APIInput oninput="APICall()"></input><button id="theme-toggle">🌙</button>
+    <button id="APIInfo" onclick="APIRules()"></button>
+    <button title="Button for API input" onclick="APIWindow()" id="API"></button>
+    <input id=APIInput oninput="APICall()"></input>
+    <button id="theme-toggle">🌙</button>
+    <br><br><br>
   </div>
-  <header>
-    <h1>Spend money of someone else</h1>
-  </header>
-
-<div id="introduction">
-    <h1>SPEND ALL OF "API" MONEY</h1>
+  <div>
+    <p id="APIRules" style="margin-top: 20px; text-align: left;">Public API key needed. No storing/access from creator´s side.  Used only for networth/name call which are public informations. Maximum of 3 calls will be done from API key. Feel free to create key to delete it after closing my page.</p>
   </div>
-<p id="wholebalance" style="position: sticky; top: 0px; padding: 20px; text-align: center; font-size: 50px">Balance remaining: <span id="balance">1000000000</span></p>
+<p id="wholebalance" style="position: sticky; top: 0px; padding: 20px; text-align: center; font-size: 50px"><span id="NameApiCall"></span>´s balance remaining: <span id="balance">1000000000</span></p>
   <!-- start of section 1 -->
   <div class="startsection" id="Xanax">
     <div class="item">

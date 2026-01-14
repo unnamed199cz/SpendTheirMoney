@@ -33,10 +33,25 @@ var WindowStatus = false;
 function APIWindow() {
  if (WindowStatus === false) {
    document.getElementById('APIInput').style.visibility = 'visible';
+   document.getElementById('APIInput').focus();
+   document.getElementById('APIInfo').style.visibility = 'visible';
    WindowStatus = true}
   else if (WindowStatus === true) {
     document.getElementById('APIInput').style.visibility = 'hidden';
+    document.getElementById('APIInfo').style.visibility = 'hidden';
     WindowStatus = false}
+}
+var RulesWindowStatus = false;
+function APIRules() {
+ if (RulesWindowStatus === false) {
+   document.getElementById('APIRules').style.visibility = 'visible';
+   document.getElementById('APIRules').focus();
+   document.getElementById('APIInfo').style.visibility = 'visible';
+     RulesWindowStatus = true}
+  else if (WindowStatus === true) {
+    document.getElementById('APIInput').style.visibility = 'hidden';
+    document.getElementById('APIInfo').style.visibility = 'hidden';
+      RulesWindowStatus = false}
 }
 /// API toggle end ------------------------------------------------
 /// API function start

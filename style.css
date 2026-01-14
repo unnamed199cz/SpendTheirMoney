@@ -6,9 +6,10 @@
     --text-color: #252e33;
     --button-bg: #e4e2de;
     --button-hover-bg: #fdfcfb;
-    --button-text: #000;
+    --button-text: #000000;
     --button-border: none;
     --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=000000');
+    --APIInfo-image: url('https://img.icons8.com/?size=100&id=77&format=png&color=000000');
     --APIInput-bg: #ffffff;
     --APIInput-text: #000000;
     --APIInput-border-color: #6b6b6b;
@@ -23,6 +24,7 @@
   --button-text: #dbe0e5;        /* button text light */
   --button-border: none;
   --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=FFFFFF');
+  --APIInfo-image: url('https://img.icons8.com/?size=100&id=77&format=png&color=FFFFFF');
   --APIInput-bg: #000000;
   --APIInput-text: #ffffff;
   --APIInput-border-color: #3d3d3d;
@@ -77,6 +79,18 @@ button#theme-toggle {
   font-size: 150%;
   cursor: pointer;
 }
+button#APIInfo {
+  margin-top: 5px;
+  width: 27px;
+  height: 27px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--bg-color);
+  background-image: var(--APIInfo-image);
+  cursor: pointer;
+  visibility: hidden;
+}
 button#API {
   margin-top: 5px;
   width: 27px;
@@ -85,7 +99,7 @@ button#API {
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
-  background-color: var(--api-button-bg);
+  background-color: var(--bg-color);
   background-image: var(--background-image);
 }
 input#APIInput{
@@ -123,4 +137,3 @@ h1 {
 p {
   text-align: inherit;
 }
-  
