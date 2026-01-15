@@ -41,16 +41,14 @@ function APIWindow() {
     document.getElementById('APIInfo').style.visibility = 'hidden';
     WindowStatus = false}
 }
+
 var RulesWindowStatus = false;
 function APIRules() {
  if (RulesWindowStatus === false) {
-   document.getElementById('APIRules').style.visibility = 'visible';
-   document.getElementById('APIRules').focus();
-   document.getElementById('APIInfo').style.visibility = 'visible';
+   document.getElementById('APIRules').style.display = 'block';
      RulesWindowStatus = true}
   else if (WindowStatus === true) {
-    document.getElementById('APIInput').style.visibility = 'hidden';
-    document.getElementById('APIInfo').style.visibility = 'hidden';
+    document.getElementById('APIRules').style.display = 'none';
       RulesWindowStatus = false}
 }
 /// API toggle end ------------------------------------------------

@@ -65,14 +65,15 @@ button:hover {
   justify-content: right;
   border: none;
   border-radius: 5px;
-  z-index: 1500;
+  z-index: 50;
 }
 p#wholebalance {
   background:fixed;
   background-color: var(--bg-color);
   transition: var(--Transition);
-  z-index: 1000;
+  z-index: 20;
   pointer-events: none;
+  padding-right: 10%;
 }
 button#theme-toggle {
   background:none;
@@ -111,7 +112,7 @@ input#APIInput{
   color: var(--APIInput-text);
   position: absolute;
   margin-right: 0px;
-  margin-top: 37px;
+  top: 55px;
 }
   .startsection {
     display: flex;
