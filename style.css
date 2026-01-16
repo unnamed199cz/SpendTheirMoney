@@ -74,6 +74,7 @@ p#wholebalance {
   z-index: 20;
   pointer-events: none;
   padding-right: 10%;
+  margin-top: 0px;
 }
 button#theme-toggle {
   background:none;

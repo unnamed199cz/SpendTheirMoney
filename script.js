@@ -45,7 +45,7 @@ function APIWindow() {
 var RulesWindowStatus = false;
 function APIRules() {
  if (RulesWindowStatus === false) {
-   document.getElementById('APIRules').style.display = 'block';
+   document.getElementById('APIRules').style.display = 'inline-block';
      RulesWindowStatus = true}
   else if (WindowStatus === true) {
     document.getElementById('APIRules').style.display = 'none';
