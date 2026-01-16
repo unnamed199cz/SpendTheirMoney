@@ -43,7 +43,9 @@
 opacity: 0.6;
 cursor: not-allowed;
 }
-
+input{
+  transition: var(--Transition)
+}
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -54,20 +56,10 @@ button {
   background-color: var(--button-bg);
   color: var(--button-text);
   border: var(--button-border);
+  transition: var(--Transition)
 }
 button:hover {
   background-color: var(--button-hover-bg)
-}
-.toprightbuttons {
-  display: flex;
-  gap: 5px;
-  position: sticky;
-  top:10px;
-  text-align:center;
-  justify-content: right;
-  border: none;
-  border-radius: 0px;
-  z-index: 50;
 }
 p#wholebalance {
   background:fixed;
@@ -75,8 +67,20 @@ p#wholebalance {
   transition: var(--Transition);
   z-index: 20;
   pointer-events: none;
-  padding-right: 10%;
   margin-top: 0px;
+}
+.toprightbuttons {
+  right:0;
+  position: absolute;
+  display: flex;
+  flex-direction: column-reverse;
+  z-index: 90;
+  gap: 5px;
+  top:0px;
+  text-align:center;
+  justify-content: right;
+  align-items: center;
+  width: min-content;
 }
 .toprightbuttons button{
   margin-top: 5px;
@@ -98,17 +102,6 @@ button#APIInfo {
 }
 button#API {
   background-image: var(--background-image);
-}
-input#APIInput{
-  visibility: hidden;
-  border-style:solid;
-  border-radius: 1px;
-  border-color: var(--APIInput-border-color);
-  background-color: var(--APIInput-bg);
-  color: var(--APIInput-text);
-  position: absolute;
-  margin-right: 0px;
-  top: 55px;
 }
   .startsection {
     display: flex;
@@ -134,5 +127,14 @@ h1 {
 p {
   text-align: inherit;
 }
-
-
+.apiinput{
+  z-index: 50;
+  top: 0px;
+  visibility: visible;
+  border-style:solid;
+  border-radius: 1px;
+  border-color: var(--APIInput-border-color);
+  background-color: var(--APIInput-bg);
+  color: var(--APIInput-text);
+  position: relative;
+}
