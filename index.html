@@ -15,11 +15,11 @@
 <body>
   <div class="toprightbuttons" style="align-items: center;">
     <button id="APIInfo" onclick="APIRules()"></button>
-    <button title="Button for API input" onclick="APIWindow()" id="API"></button>
+    <button title="Button for API input show" onclick="APIWindow()" id="API"></button>
     <input id=APIInput oninput="APICall()"></input>
-    <button id="theme-toggle">🌙</button>
+    <button id="theme-toggle"></button>
   </div>
-  <p id="APIRules" style="text-align: center;display:none;position: relative;top:0px;width: 70%;left:10%;overflow:visible;z-index: 21;font-size: auto;border-bottom: 2px black;">Public API key needed. No storing/access from creator´s side.  Used only for networth/name call which are public informations. Maximum of 3 calls will be done from API key. Feel free to create key to delete it after closing my page.</p>
+  <p id="APIRules" style="text-align: center;display:none;position: relative;top:0px;width: 70%;left:10%;overflow:visible;z-index: 21;font-size: auto;border-bottom: 5px solid black;padding-bottom: 5px;">Public API key needed. No storing/access from creator´s side.  Used only for networth/name call which are public informations. Maximum of 3 calls will be done from API key. Feel free to create key to delete it after closing my page.</p>
 <p id="wholebalance" style="position: sticky; top:0px; margin-bottom: 20px; text-align: center; font-size: clamp(5vw, 50px, 0.8rem);">
   <span id="NameApiCall"></span>´s balance remaining: <span id="balance">1000000000</span></p>
   <!-- start of section 1 -->
@@ -63,7 +63,7 @@
   <!-- 
     -----------------------------------
     // To-do list NEEDED
-    Introduction for API + rules
+
     More items
     Name apicall
     mobile view
@@ -72,7 +72,6 @@
     API prices + Sort items by value
 
   -->
-
 
 
 

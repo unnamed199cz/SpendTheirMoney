@@ -8,6 +8,7 @@
     --button-hover-bg: #fdfcfb;
     --button-text: #000000;
     --button-border: none;
+    --themebutton-image: url('https://em-content.zobj.net/source/microsoft-3D-fluent/433/sun_2600-fe0f.png');
     --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=000000');
     --APIInfo-image: url('https://img.icons8.com/?size=100&id=77&format=png&color=000000');
     --APIInput-bg: #ffffff;
@@ -23,6 +24,7 @@
   --button-hover-bg: #525050;    /* hover effect */
   --button-text: #dbe0e5;        /* button text light */
   --button-border: none;
+  --themebutton-image: url('https://em-content.zobj.net/source/microsoft-3D-fluent/433/crescent-moon_1f319.png');
   --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=FFFFFF');
   --APIInfo-image: url('https://img.icons8.com/?size=100&id=77&format=png&color=FFFFFF');
   --APIInput-bg: #000000;
@@ -64,7 +66,7 @@ button:hover {
   text-align:center;
   justify-content: right;
   border: none;
-  border-radius: 5px;
+  border-radius: 0px;
   z-index: 50;
 }
 p#wholebalance {
@@ -76,32 +78,25 @@ p#wholebalance {
   padding-right: 10%;
   margin-top: 0px;
 }
-button#theme-toggle {
-  background:none;
-  font-size: 150%;
-  cursor: pointer;
-}
-button#APIInfo {
+.toprightbuttons button{
   margin-top: 5px;
   width: 27px;
   height: 27px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-color: var(--bg-color);
-  background-image: var(--APIInfo-image);
   cursor: pointer;
+  background-color: var(--bg-color);
+  visibility: visible;
+}
+button#theme-toggle{
+  background-image: var(--themebutton-image);
+}
+button#APIInfo {
+  background-image: var(--APIInfo-image);
   visibility: hidden;
 }
 button#API {
-  margin-top: 5px;
-  width: 27px;
-  height: 27px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  cursor: pointer;
-  background-color: var(--bg-color);
   background-image: var(--background-image);
 }
 input#APIInput{
@@ -139,3 +134,5 @@ h1 {
 p {
   text-align: inherit;
 }
+
+

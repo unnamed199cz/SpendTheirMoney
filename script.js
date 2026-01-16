@@ -2,11 +2,7 @@
 const toggleButtonTheme = document.getElementById('theme-toggle');
 const root = document.documentElement;
 
-function updateToggleIcon() {
-  const isDark = root.getAttribute('data-theme') === 'dark';
-  toggleButtonTheme.textContent = isDark ? '☀️' : '🌙';
-}
-
+/// Preferences
 window.addEventListener('DOMContentLoaded', () => {
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; 
   document.getElementById("balance").textContent = new Intl.NumberFormat().format(Number(document.getElementById("balance").textContent)); //bal format
