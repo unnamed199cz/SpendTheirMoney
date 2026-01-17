@@ -14,13 +14,12 @@
 </head>
 <body>
   <input type="number" placeholder="USER ID" class="apiinput" id=APINameInput oninput="APINameCall()"></input>
-  <input maxlength="16" placeholder="API KEY" class="apiinput" id=APIInput oninput="APICall()""></input>
+  <input maxlength="16" placeholder="API KEY" class="apiinput" id=APIInput oninput="APICall()""></input><br>
   <div class="toprightbuttons">
-    <button id="APIInfo" onclick="APIRules()"></button>
-    <button title="Button for API input show" onclick="APIWindow()" id="API"></button>
+    <button title="Button for API input show" id="APIInfo" onclick="APIRules()"></button>
     <button id="theme-toggle"></button>
   </div>
-  <p id="APIRules" style="text-align: center;display:none;position: relative;top:0px;width: 70%;left:10%;overflow:visible;z-index: 30;">Public API key needed. No storing/access from creator´s side.  Used only for networth/name call which are public informations. Maximum of 3 calls will be done from API key. Feel free to create key to delete it after closing my page.</p>
+  <p id="APIRules" style="text-align: center;display:none;position: relative;top:0px;width: 60%;margin-left: auto;margin-right: auto;overflow:visible;z-index: 30;">Public API key needed. No storing/access from creator´s side.  Used only for networth/name call which are public informations. Maximum of 3 calls will be done from API key. Feel free to create key to delete it after closing my page.</p>
   <p id="wholebalance" style="position: sticky; top:0px; margin-bottom: 20px; text-align: center; font-size: clamp(5vw, 50px, 0.8rem);padding-top: 20px; border-bottom: 3px solid black;">
   <span id="NameApiCall"></span>´s balance remaining: <span id="balance">1000000000</span></p>
   <!-- start of section 1 -->
@@ -65,15 +64,17 @@
     -----------------------------------
     // To-do list NEEDED
     More items
-    Name apicall
     mobile view - sizes of fonts
     Add number on hold button
+    Add total price of items + receipt
+    make space between buttons and balance
     ----- THEORY (would make it slower, api dependant (A LOT))
     API prices + Sort items by value
-
-  Remove top right buttons?? 
-  move second input right
   
+  APIRules visual in block / centered
+  Removed top right buttons hiding
+  Inputs style edit
+  Name apicall - similar to APIKey
   -->
 
 

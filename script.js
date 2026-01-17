@@ -25,25 +25,13 @@ toggleButtonTheme.addEventListener('click', () => {
 });
 /// theme toggle end ----------------------------------------------
 /// API toggle start -----------------------------------------------
-var WindowStatus = false;
-function APIWindow() {
- if (WindowStatus === false) {
-   document.getElementById('APIInput').style.visibility = 'visible';
-   document.getElementById('APIInput').focus();
-   document.getElementById('APIInfo').style.visibility = 'visible';
-   WindowStatus = true}
-  else if (WindowStatus === true) {
-    document.getElementById('APIInput').style.visibility = 'hidden';
-    document.getElementById('APIInfo').style.visibility = 'hidden';
-    WindowStatus = false}
-}
 
 var RulesWindowStatus = false;
 function APIRules() {
  if (RulesWindowStatus === false) {
-   document.getElementById('APIRules').style.display = 'inline-block';
+   document.getElementById('APIRules').style.display = 'block';
      RulesWindowStatus = true}
-  else if (WindowStatus === true) {
+  else if (RulesWindowStatus === true) {
     document.getElementById('APIRules').style.display = 'none';
       RulesWindowStatus = false}
 }

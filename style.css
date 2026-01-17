@@ -10,7 +10,6 @@
     --button-border: none;
     --themebutton-image: url('https://em-content.zobj.net/source/microsoft-3D-fluent/433/sun_2600-fe0f.png');
     --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=000000');
-    --APIInfo-image: url('https://img.icons8.com/?size=100&id=77&format=png&color=000000');
     --APIInput-bg: #ffffff;
     --APIInput-text: #000000;
     --APIInput-border-color: #6b6b6b;
@@ -26,7 +25,6 @@
   --button-border: none;
   --themebutton-image: url('https://em-content.zobj.net/source/microsoft-3D-fluent/433/crescent-moon_1f319.png');
   --background-image: url('https://img.icons8.com/?size=100&id=21888&format=png&color=FFFFFF');
-  --APIInfo-image: url('https://img.icons8.com/?size=100&id=77&format=png&color=FFFFFF');
   --APIInput-bg: #000000;
   --APIInput-text: #ffffff;
   --APIInput-border-color: #3d3d3d;
@@ -97,8 +95,7 @@ button#theme-toggle{
   background-image: var(--themebutton-image);
 }
 button#APIInfo {
-  background-image: var(--APIInfo-image);
-  visibility: hidden;
+  background-image: var(--background-image);
 }
 button#API {
   background-image: var(--background-image);
@@ -130,17 +127,17 @@ p {
 .apiinput{
   z-index: 50;
   top: 0px;
-  visibility: visible;
   border-style:solid;
   border-radius: 1px;
   border-color: var(--APIInput-border-color);
   background-color: var(--APIInput-bg);
   color: var(--APIInput-text);
   position: relative;
+  width: 40%;
+  margin-left: 5%;
 }
   #APINameInput::-webkit-outer-spin-button,
   #APINameInput::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-
