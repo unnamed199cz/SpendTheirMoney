@@ -13,8 +13,8 @@
 
 </head>
 <body>
-  <input placeholder="USER ID" class="apiinput" id=APINameInput oninput="APINameCall()"></input>
-  <input placeholder="API KEY" class="apiinput" id=APIInput oninput="APICall()""></input>
+  <input type="number" placeholder="USER ID" class="apiinput" id=APINameInput oninput="APINameCall()"></input>
+  <input maxlength="16" placeholder="API KEY" class="apiinput" id=APIInput oninput="APICall()""></input>
   <div class="toprightbuttons">
     <button id="APIInfo" onclick="APIRules()"></button>
     <button title="Button for API input show" onclick="APIWindow()" id="API"></button>

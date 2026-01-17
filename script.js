@@ -52,7 +52,7 @@ function APIRules() {
 function APICall() {
   let APIInput = document.getElementById('APIInput').value;
     if (!(APIInput.length === 16)) 
-      console.log("Not an API")
+      console.log("Not an API key")
     else {
       fetch(`https://api.torn.com/v2/user/hof?comment=SpendTheirNW&key=${APIInput}`)
       .then (response => response.json())
@@ -61,6 +61,21 @@ function APICall() {
         var MoneyOfUser = data.hof.networth.value
         console.log(`Players networth: ${MoneyOfUser}`)
         document.getElementById("balance").innerText = new Intl.NumberFormat().format(newbalance)
+})}
+}
+function APINameCall() {
+  let APINameInput = document.getElementById('ApiNameInput').value;
+    if (!(APINameInput.format === Number)) 
+      console.log("Not an ID, use numbers.")
+    else {
+      fetch(`https://api.torn.com/v2/user/networth?comment=SpendTheirNW&key=${APIInput}`)
+      .then (response => response.json())
+      .catch ((error) => console.log(error))
+      .then (data => {
+        var MoneyOfUser = data.networth.total.value
+        console.log(`Players networth: ${MoneyOfUser}`)
+        document.getElementById("balance").innerText = new Intl.NumberFormat().format(newbalance)
+        document.getElementById("APIInput").setAttribute('disabled', 'disabled')
 })}
 }
 /// API function end

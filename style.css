@@ -138,3 +138,9 @@ p {
   color: var(--APIInput-text);
   position: relative;
 }
+  #APINameInput::-webkit-outer-spin-button,
+  #APINameInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
