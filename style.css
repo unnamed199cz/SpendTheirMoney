@@ -14,6 +14,7 @@
     --APIInput-text: #000000;
     --APIInput-border-color: #6b6b6b;
     --Transition: background-color 0.8s, color 0.8s;
+    --buttonimg: clamp(20px, 5vw, 50px)
 }
 
   [data-theme="dark"] {
@@ -65,7 +66,7 @@ p#wholebalance {
   transition: var(--Transition);
   z-index: 20;
   pointer-events: none;
-  margin-top: 0px;
+  margin-top: var(--buttonimg)
 }
 .toprightbuttons {
   right:0;
@@ -82,8 +83,8 @@ p#wholebalance {
 }
 .toprightbuttons button{
   margin-top: 5px;
-  width: 27px;
-  height: 27px;
+  width: var(--buttonimg);
+  height: var(--buttonimg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
