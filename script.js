@@ -86,8 +86,7 @@ function buyItem(button) {
   const priceofitem = Number(document.getElementById(`itemprice_${itemname}`).textContent);
   if (currentbalance >= priceofitem) {
     input.value = Number(input.value || 0) + 1
-    newbalance = currentbalance - priceofitem
-    document.getElementById("balance").textContent = new Intl.NumberFormat().format(newbalance)}
+    input.dispatchEvent( new Event('input', {bubbles: true}) )}
 }
 function sellItem(button) {
   let currentbalance = Number( document.getElementById("balance").textContent.replace(/[\s,\.]/g, ""))
@@ -97,9 +96,53 @@ function sellItem(button) {
   let value = Number(input.value) || 0;
   if (value > 0) {
     input.value = value - 1;
-    newbalance = currentbalance + priceofitem
-    document.getElementById("balance").innerText = new Intl.NumberFormat().format(newbalance)}
+    input.dispatchEvent( new Event('input', {bubbles: true}))}
 }
+
+const previousValues = {}
+
+document.addEventListener('input', (ReadInput) => {
+  if (!ReadInput.target.matches('.counter input')) return
+
+  var input = ReadInput.target
+  var itemname = input.id
+
+  var oldValue = previousValues[itemname] ?? 0
+  var newValue = input.value === '' ? 0 : Number(input.value)
+
+  // rozdíl mezi novou a starou hodnotou
+  var diff = newValue - oldValue
+
+  var priceofitem = Number(
+    document.getElementById(`itemprice_${itemname}`).textContent
+  )
+
+  let currentbalance = Number(
+    document.getElementById("balance").textContent.replace(/[\s,\.]/g, "")
+  )
+
+  // pokud chceš kontrolovat, že je to v rámci balancu
+  if (currentbalance >= priceofitem * diff) {
+    var newbalance = currentbalance - priceofitem * diff
+    document.getElementById("balance").textContent =
+      new Intl.NumberFormat().format(newbalance)
+
+    previousValues[itemname] = newValue
+  } else {
+    var limitedbuy = Math.floor(currentbalance / priceofitem)
+
+    // nastavím input na max možný
+    input.value = limitedbuy
+
+    // upravím balance podle toho, co je teď ve inputu
+    var newbalance = currentbalance - limitedbuy * priceofitem
+    document.getElementById("balance").textContent =
+      new Intl.NumberFormat().format(newbalance)
+
+    previousValues[itemname] = limitedbuy
+  }
+})
+
 
 document.querySelectorAll('.counter input').forEach(input => {
   input.addEventListener('input', () => {
