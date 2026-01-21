@@ -38,7 +38,7 @@ function APIRules() {
 /// API toggle end ------------------------------------------------
 /// API function start
 function APICall() {
-  let APIInput = document.getElementById('APIInput').value;
+  var APIInput = document.getElementById('APIInput').value;
     if (!(APIInput.length === 16)) 
       console.log("Not an API key")
     else {
@@ -47,25 +47,36 @@ function APICall() {
       .catch ((error) => console.log(error))
       .then (data => {
         var MoneyOfUser = data.hof.networth.value
-        console.log(`Players networth: ${MoneyOfUser}`)
-        document.getElementById("balance").innerText = new Intl.NumberFormat().format(newbalance)
+        console.log(`API's owner networth: ${MoneyOfUser}`)
+        document.getElementById("balance").innerText = new Intl.NumberFormat().format(MoneyOfUser)
 })}
 }
 function APINameCall() {
-  let APINameInput = document.getElementById('ApiNameInput').value;
-    if (!(APINameInput.format === Number)) 
+  var APIInput = document.getElementById('APIInput').value;
+  let APINameInput = document.getElementById('APINameInput').value;
+    if (isNaN(Number(APINameInput)))
       console.log("Not an ID, use numbers.")
     else {
-      fetch(`https://api.torn.com/v2/user/networth?comment=SpendTheirNW&key=${APIInput}`)
+      console.log(`Player's ID: ${APINameInput}`)
+      console.log(`API key: ${APIInput}`)
+      fetch(`https://api.torn.com/v2/user/${APINameInput}/personalstats?stat=networth&comment=SpendTheirNW&key=${APIInput}`)
       .then (response => response.json())
       .catch ((error) => console.log(error))
       .then (data => {
-        var MoneyOfUser = data.networth.total.value
-        console.log(`Players networth: ${MoneyOfUser}`)
-        document.getElementById("balance").innerText = new Intl.NumberFormat().format(newbalance)
-        document.getElementById("APIInput").setAttribute('disabled', 'disabled')
-})}
-}
+        var MoneyOfUser = data.personalstats[0].value
+        console.log(`Player's networth: ${MoneyOfUser}`)
+        document.getElementById("balance").innerText = new Intl.NumberFormat().format(MoneyOfUser)})
+      
+      fetch(`https://api.torn.com/v2/user/${APINameInput}/basic?comment=SpendTheirNW&key=${APIInput}`)
+      .then (response => response.json())
+      .catch ((error) => console.log(error))
+      .then (data => {        
+      var NameOfUser = data.profile.name
+      console.log(`Player's name: ${NameOfUser}`)
+      document.getElementById("NameApiCall").innerText = NameOfUser
+})
+    }}
+
 /// API function end
 
 function buyItem(button) {

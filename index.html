@@ -13,8 +13,8 @@
 
 </head>
 <body>
-  <input type="number" placeholder="USER ID" class="apiinput" id=APINameInput oninput="APINameCall()"></input>
-  <input maxlength="16" placeholder="API KEY" class="apiinput" id=APIInput oninput="APICall()""></input><br>
+  <input min="1" type="number" placeholder="USER ID" class="apiinput" id=APINameInput oninput="APINameCall()"></input>
+  <input maxlength="16" placeholder="API KEY" class="apiinput" id=APIInput oninput="APICall()""></input><br><button class="apiinput"></button><button class="apiinput"></button>
   <div class="toprightbuttons">
     <button title="Button for API input show" id="APIInfo" onclick="APIRules()"></button>
     <button id="theme-toggle"></button>
@@ -60,23 +60,19 @@
 <div style="padding-bottom:2000px"></div>
 
 
-  <!-- 
-    -----------------------------------
-    // To-do list NEEDED
-    More items
-    mobile view - sizes of fonts
-    Add number on hold button
-    Add total price of items + receipt
-    make space between buttons and balance
-    ----- THEORY (would make it slower, api dependant (A LOT))
-    API prices + Sort items by value
-
-size of buttons
+  <!-------------------------------------
+  // Must edit before release
+  button for api input - fix position/colision with themebutton
+  read from item count input, not buttons
+  More items
   
-  APIRules visual in block / centered
-  Removed top right buttons hiding
-  Inputs style edit
-  Name apicall - similar to APIKey
+  // Would be great
+  mobile view - sizes of fonts/size of buttons
+  
+  // Bonuses
+  Receipt
+  Add number on hold button
+  API prices + Sort items by value
   -->
 
 
