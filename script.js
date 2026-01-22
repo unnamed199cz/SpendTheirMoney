@@ -24,6 +24,19 @@ toggleButtonTheme.addEventListener('click', () => {
   updateToggleIcon();
 });
 /// theme toggle end ----------------------------------------------
+/// Prices of items start ------------------------------------------
+window.addEventListener('DOMContentLoaded', () => {
+
+  const itemprice = {
+    Wolverine: 9000,
+    Drugpack: 24990,
+    Xanax: 1990
+  }
+  Object.entries(itemprice).forEach(([id, price]) => {
+    const a = document.getElementById(`itemprice_${id}`)
+    if (!a) return
+    {a.textContent = new Intl.NumberFormat().format(price)}})})
+/// Prices of items end --------------------------------------------
 /// API toggle start -----------------------------------------------
 
 var RulesWindowStatus = false;
