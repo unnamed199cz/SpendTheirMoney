@@ -35,7 +35,7 @@ window.addEventListener('DOMContentLoaded', () => {
   Object.entries(itemprice).forEach(([id, price]) => {
     const a = document.getElementById(`itemprice_${id}`)
     if (!a) return
-    {a.textContent = new Intl.NumberFormat().format(price)}})})
+    a.textContent = new Intl.NumberFormat().format(price)})})
 /// Prices of items end --------------------------------------------
 /// API toggle start -----------------------------------------------
 
