@@ -100,46 +100,37 @@ function sellItem(button) {
 }
 
 const previousValues = {}
-
+///--------------------------------------------------
+/// Input listener
+///--------------------------------------------------
 document.addEventListener('input', (ReadInput) => {
   if (!ReadInput.target.matches('.counter input')) return
 
   var input = ReadInput.target
   var itemname = input.id
-
   var oldValue = previousValues[itemname] ?? 0
   var newValue = input.value === '' ? 0 : Number(input.value)
-
-  // rozdíl mezi novou a starou hodnotou
-  var diff = newValue - oldValue
-
+  var diff = newValue - oldValue // rozdíl mezi novou a starou hodnotou
   var priceofitem = Number(
-    document.getElementById(`itemprice_${itemname}`).textContent
-  )
-
+    document.getElementById(`itemprice_${itemname}`).textContent)
   let currentbalance = Number(
-    document.getElementById("balance").textContent.replace(/[\s,\.]/g, "")
-  )
-
+    document.getElementById("balance").textContent.replace(/[\s,\.]/g, ""))
+  if (diff > 0 && currentbalance < priceofitem) {
+    input.value = oldValue
+    return}
   // pokud chceš kontrolovat, že je to v rámci balancu
   if (currentbalance >= priceofitem * diff) {
     var newbalance = currentbalance - priceofitem * diff
-    document.getElementById("balance").textContent =
-      new Intl.NumberFormat().format(newbalance)
-
+    document.getElementById("balance").textContent = new Intl.NumberFormat().format(newbalance)
     previousValues[itemname] = newValue
   } else {
     var limitedbuy = Math.floor(currentbalance / priceofitem)
-
     // nastavím input na max možný
-    input.value = limitedbuy
-
-    // upravím balance podle toho, co je teď ve inputu
+    input.value = oldValue + limitedbuy
     var newbalance = currentbalance - limitedbuy * priceofitem
     document.getElementById("balance").textContent =
       new Intl.NumberFormat().format(newbalance)
-
-    previousValues[itemname] = limitedbuy
+    previousValues[itemname] = input.value
   }
 })
 
