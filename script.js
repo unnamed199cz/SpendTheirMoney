@@ -21,22 +21,33 @@ toggleButtonTheme.addEventListener('click', () => {
     root.removeAttribute('data-theme'); 
   }
 
-  updateToggleIcon();
+ // updateToggleIcon();  throws errors??? 
 });
 /// theme toggle end ----------------------------------------------
 /// Prices of items start ------------------------------------------
 window.addEventListener('DOMContentLoaded', () => {
 
   const itemprice = {
-    Wolverine: 9000,
-    Drugpack: 24990,
-    Xanax: 1990
+    Wolverine: 5000,
+    Drugpack: 4500000,
+    Xanax: 900000
   }
   Object.entries(itemprice).forEach(([id, price]) => {
     const a = document.getElementById(`itemprice_${id}`)
     if (!a) return
     a.textContent = new Intl.NumberFormat().format(price)})})
 /// Prices of items end --------------------------------------------
+/// Auto price sort start
+window.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("startsection")
+  const items = [...container.children]
+  items
+  //if (items.length === 0)
+    .sort((b, a) =>
+      Number(b.querySelector("span[id^='itemprice']").textContent.replace(/[\s,\.]/g, "")) - Number(a.querySelector("span[id^='itemprice']").textContent.replace(/[\s,\.]/g, "")))
+    .forEach(item => container.appendChild(item))
+})
+/// Auto price sort end
 /// API toggle start -----------------------------------------------
 
 var RulesWindowStatus = false;
@@ -96,16 +107,13 @@ function buyItem(button) {
   let currentbalance = Number( document.getElementById("balance").textContent.replace(/[\s,\.]/g, ""))
   const input = button.parentElement.querySelector('input');
   const itemname = input.id
-  const priceofitem = Number(document.getElementById(`itemprice_${itemname}`).textContent);
+  const priceofitem = Number(document.getElementById(`itemprice_${itemname}`).textContent.replace(/[\s,\.]/g, ""));
   if (currentbalance >= priceofitem) {
     input.value = Number(input.value || 0) + 1
     input.dispatchEvent( new Event('input', {bubbles: true}) )}
 }
 function sellItem(button) {
-  let currentbalance = Number( document.getElementById("balance").textContent.replace(/[\s,\.]/g, ""))
   const input = button.parentElement.querySelector('input');
-  const itemname = input.id
-  const priceofitem = Number(document.getElementById(`itemprice_${itemname}`).textContent);
   let value = Number(input.value) || 0;
   if (value > 0) {
     input.value = value - 1;
@@ -125,7 +133,7 @@ document.addEventListener('input', (ReadInput) => {
   var newValue = input.value === '' ? 0 : Number(input.value)
   var diff = newValue - oldValue // rozdíl mezi novou a starou hodnotou
   var priceofitem = Number(
-    document.getElementById(`itemprice_${itemname}`).textContent)
+    document.getElementById(`itemprice_${itemname}`).textContent.replace(/[\s,\.]/g, ""))
   let currentbalance = Number(
     document.getElementById("balance").textContent.replace(/[\s,\.]/g, ""))
   if (diff > 0 && currentbalance < priceofitem) {
