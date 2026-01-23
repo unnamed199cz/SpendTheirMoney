@@ -125,17 +125,20 @@ h1 {
 p {
   text-align: inherit;
 }
-.apiinput{
+.apiinput {
   z-index: 50;
   top: 0px;
-  border-style:solid;
+  border-style: solid;
   border-radius: 1px;
+  border-width: 2px;
   border-color: var(--APIInput-border-color);
   background-color: var(--APIInput-bg);
   color: var(--APIInput-text);
   position: relative;
   width: 40%;
   margin-left: 5%;
+  padding: 1px 2px;
+  box-sizing: border-box;
 }
   #APINameInput::-webkit-outer-spin-button,
   #APINameInput::-webkit-inner-spin-button {

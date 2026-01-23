@@ -42,7 +42,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("startsection")
   const items = [...container.children]
   items
-  //if (items.length === 0)
+  //if ()
     .sort((b, a) =>
       Number(b.querySelector("span[id^='itemprice']").textContent.replace(/[\s,\.]/g, "")) - Number(a.querySelector("span[id^='itemprice']").textContent.replace(/[\s,\.]/g, "")))
     .forEach(item => container.appendChild(item))
