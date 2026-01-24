@@ -38,15 +38,29 @@ window.addEventListener('DOMContentLoaded', () => {
     a.textContent = new Intl.NumberFormat().format(price)})})
 /// Prices of items end --------------------------------------------
 /// Auto price sort start
-window.addEventListener("DOMContentLoaded", () => {
+ function sort() {
   const container = document.getElementById("startsection")
   const items = [...container.children]
-  items
-  //if ()
-    .sort((b, a) =>
-      Number(b.querySelector("span[id^='itemprice']").textContent.replace(/[\s,\.]/g, "")) - Number(a.querySelector("span[id^='itemprice']").textContent.replace(/[\s,\.]/g, "")))
-    .forEach(item => container.appendChild(item))
-})
+  var dir = document.getElementById(`sorttext`).textContent
+    if  (dir === "Asc") {
+    items.sort((a, b) =>
+      Number(a.querySelector("span[id^='itemprice']").textContent.replace(/[\s,\.]/g, "")) - Number(b.querySelector("span[id^='itemprice']").textContent.replace(/[\s,\.]/g, ""))) 
+    items.forEach(item => container.appendChild(item))}
+    else {
+      items.sort((a, b) =>
+        Number(b.querySelector("span[id^='itemprice']").textContent.replace(/[\s,\.]/g, "")) - Number(a.querySelector("span[id^='itemprice']").textContent.replace(/[\s,\.]/g, ""))) 
+      items.forEach(item => container.appendChild(item))}}
+window.addEventListener("DOMContentLoaded", sort)
+
+function sortbutton() {
+  var direct = document.getElementById(`sorttext`).textContent 
+  if  (direct === "Asc") {
+    document.getElementById(`sorttext`).textContent = "Desc"
+    sort()}
+  else {
+    document.getElementById(`sorttext`).textContent = "Asc"
+    sort()}}
+
 /// Auto price sort end
 /// API toggle start -----------------------------------------------
 
