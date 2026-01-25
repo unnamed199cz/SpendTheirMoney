@@ -14,7 +14,9 @@
     --APIInput-text: #000000;
     --APIInput-border-color: #6b6b6b;
     --Transition: background-color 0.8s, color 0.8s;
-    --buttonimg: clamp(20px, 5vw, 50px)
+    --buttonimg: clamp(20px, 5vw, 50px);
+    --sortbuttonasc: url("https://img.icons8.com/?size=100&id=f1fhADRkTrAU&format=png&color=000000");
+    --sortbuttondesc: url("https://img.icons8.com/?size=100&id=69900&format=png&color=000000");
 }
 
   [data-theme="dark"] {
@@ -30,6 +32,8 @@
   --APIInput-text: #ffffff;
   --APIInput-border-color: #3d3d3d;
   --Transition: 0.8s;
+  --sortbuttonasc: url("https://img.icons8.com/?size=100&id=f1fhADRkTrAU&format=png&color=FFFFFF");
+  --sortbuttondesc: url("https://img.icons8.com/?size=100&id=69900&format=png&color=FFFFFF");
   }
 .counter button {
   border-radius: 100%;
@@ -66,7 +70,6 @@ p#wholebalance {
   transition: var(--Transition);
   z-index: 20;
   pointer-events: none;
-  margin-top: var(--buttonimg)
 }
 .toprightbuttons {
   right:0;

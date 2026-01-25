@@ -50,15 +50,19 @@ window.addEventListener('DOMContentLoaded', () => {
       items.sort((a, b) =>
         Number(b.querySelector("span[id^='itemprice']").textContent.replace(/[\s,\.]/g, "")) - Number(a.querySelector("span[id^='itemprice']").textContent.replace(/[\s,\.]/g, ""))) 
       items.forEach(item => container.appendChild(item))}}
+
 window.addEventListener("DOMContentLoaded", sort)
 
 function sortbutton() {
   var direct = document.getElementById(`sorttext`).textContent 
   if  (direct === "Asc") {
     document.getElementById(`sorttext`).textContent = "Desc"
+    document.getElementById("sortbutton").style.backgroundImage =
+    'var(--sortbuttondesc)'
     sort()}
   else {
     document.getElementById(`sorttext`).textContent = "Asc"
+    document.getElementById("sortbutton").style.backgroundImage = 'var(--sortbuttonasc)'
     sort()}}
 
 /// Auto price sort end
