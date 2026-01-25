@@ -16,7 +16,7 @@
   <input min="1" type="number" placeholder="USER ID" class="apiinput" id=APINameInput ></input>
   <input maxlength="16" placeholder="API KEY" class="apiinput" id=APIInput></input>
   <br><button onclick="APINameCall()" class="apiinput"></button>
-  <button onclick="APICall()" class="apiinput"></button>
+  <button onclick="APICall(); itemnames()" class="apiinput"></button>
   <div class="toprightbuttons">
     <button title="Button for API input show" id="APIInfo" onclick="APIRules()"></button>
     <button id="theme-toggle"></button>
@@ -30,7 +30,7 @@
     <div class="item">
       <img src=" https://www.torn.com/images/items/206/large.png">
       <br><span>Xanax</span>
-      <br><span id="itemprice_Xanax"></span>
+      <br><span id="itemprice_Xanax">900000</span>
       <div class="counter">
         <button onclick="sellItem(this)">-</button>
         <input type=number id="Xanax">
@@ -40,7 +40,7 @@
     <div class="item">
       <img src="https://www.torn.com/images/items/261/large.png">
       <br><span>Wolverine plushie</span>
-      <br><span id="itemprice_Wolverine"></span>
+      <br><span id="itemprice_Wolverine">7000</span>
       <div class="counter">
         <button onclick="sellItem(this)">-</button>
         <input type=number id="Wolverine">
@@ -50,7 +50,7 @@
     <div class="item">
       <img src="https://www.torn.com/images/items/370/large.png">
       <br><span>Drug pack</span>
-      <br><span id="itemprice_Drugpack"></span>
+      <br><span id="itemprice_Drugpack">4500000</span>
       <div class="counter">
         <button onclick="sellItem(this)">-</button>
         <input type=number id="Drugpack">
@@ -71,10 +71,8 @@
   mobile view - sizes of fonts/size of buttons??
   
   // Bonuses
-  Sort button = done
   Receipt
   Add number on hold button
-  API prices
   -->
 
 

@@ -6,6 +6,8 @@ const root = document.documentElement;
 window.addEventListener('DOMContentLoaded', () => {
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches; 
   document.getElementById("balance").textContent = new Intl.NumberFormat().format(Number(document.getElementById("balance").textContent)); //bal format
+  document.querySelectorAll("[id^='itemprice_']").forEach(function (el) {
+    el.textContent = new Intl.NumberFormat().format(Number(el.textContent))}) // prices format
   if(prefersDark && root.getAttribute('data-theme') !== 'dark') 
   {toggleButtonTheme.click()} 
   else {updateToggleIcon()}
@@ -20,22 +22,33 @@ toggleButtonTheme.addEventListener('click', () => {
   } else {
     root.removeAttribute('data-theme'); 
   }
-
  // updateToggleIcon();  throws errors??? 
 });
 /// theme toggle end ----------------------------------------------
 /// Prices of items start ------------------------------------------
-window.addEventListener('DOMContentLoaded', () => {
+const itemIds = {
+  PenKnife: 5,
+  Xanax: 8}
 
-  const itemprice = {
-    Wolverine: 5000,
-    Drugpack: 4500000,
-    Xanax: 900000
-  }
-  Object.entries(itemprice).forEach(([id, price]) => {
-    const a = document.getElementById(`itemprice_${id}`)
-    if (!a) return
-    a.textContent = new Intl.NumberFormat().format(price)})})
+ async function itemnames(){
+  var APIInput = document.getElementById('APIInput').value;
+  const ids = Object.values(itemIds).join(",")
+  const res = await fetch(
+    `https://api.torn.com/v2/torn/${ids}/items?sort=ASC&key=${APIInput}`)
+  const data = await res.json()
+  const itemPrices = {}
+   
+  data.items.forEach(item => {
+    const name = Object.keys(itemIds).find(
+      key => itemIds[key] === item.id)
+    if (!name) return
+    itemPrices[name] = item.value.market_price})
+
+  Object.entries(itemPrices).forEach(([name, price]) => {
+    const el = document.getElementById(`itemprice_${name}`)
+    if (!el) return
+    el.textContent = new Intl.NumberFormat().format(price)})
+    sort()}
 /// Prices of items end --------------------------------------------
 /// Auto price sort start
  function sort() {
