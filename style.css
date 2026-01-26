@@ -109,13 +109,13 @@ button#API {
     flex-wrap: wrap;
   }
   .item {
-    margin-top:30px;
+    margin-top:10%;
     flex: 1 1 300px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    min-width: 300px; /* ensures items don’t shrink too small */
+    min-width: 30%; /* ensures items don’t shrink too small */
   }
   .item img {
     max-width: 100%;   /* image fits inside the flex item */
@@ -143,6 +143,22 @@ p {
   padding: 1px 2px;
   box-sizing: border-box;
 }
+.confirmbutton {
+  z-index: 50;
+  top: 0px;
+  border-style: solid;
+  border-radius: 1px;
+  border-width: 2px;
+  border-color: var(--APIInput-border-color);
+  background-color: var(--APIInput-border-color);
+  color: var(--APIInput-text);
+  position: relative;
+  width: 40%;
+  height: 10%;
+  margin-left: 5%;
+  padding: 1px 2px;
+  box-sizing: border-box}
+
   #APINameInput::-webkit-outer-spin-button,
   #APINameInput::-webkit-inner-spin-button {
     -webkit-appearance: none;

@@ -28,9 +28,22 @@ toggleButtonTheme.addEventListener('click', () => {
 /// Prices of items start ------------------------------------------
 const itemIds = {
   PenKnife: 5,
-  Xanax: 8}
+  Xanax: 206,
+  DP: 283,
+  FHC: 367,
+  Drugpack: 370,
+  XMass: 555,
+  Taurine: 533,
+  Carols: 561,
+  ACache: 1118,
+  MlCache: 1119,
+  SCache: 1120,
+  MCache: 1121,
+  HCache: 1122,
+}
 
  async function itemnames(){
+   console.log("vole")
   var APIInput = document.getElementById('APIInput').value;
   const ids = Object.values(itemIds).join(",")
   const res = await fetch(
@@ -43,11 +56,21 @@ const itemIds = {
       key => itemIds[key] === item.id)
     if (!name) return
     itemPrices[name] = item.value.market_price})
-
+console.log(ids)
   Object.entries(itemPrices).forEach(([name, price]) => {
     const el = document.getElementById(`itemprice_${name}`)
     if (!el) return
     el.textContent = new Intl.NumberFormat().format(price)})
+   console.log(itemPrices)
+// Math prices
+     const mathprices = {
+       LTXanax: itemPrices.Xanax * 1000,
+     }
+   console.log(mathprices)
+     Object.entries(mathprices).forEach(([id, price]) => {
+       const a = document.getElementById(`itemprice_${id}`)
+       if (!a) return
+       {a.textContent = new Intl.NumberFormat().format(price)}})
     sort()}
 /// Prices of items end --------------------------------------------
 /// Auto price sort start
