@@ -27,7 +27,7 @@ toggleButtonTheme.addEventListener('click', () => {
 /// theme toggle end ----------------------------------------------
 /// Prices of items start ------------------------------------------
 const itemIds = {
-  PenKnife: 5,
+  EDVD: 366,
   Xanax: 206,
   DP: 283,
   FHC: 367,
@@ -40,17 +40,21 @@ const itemIds = {
   SCache: 1120,
   MCache: 1121,
   HCache: 1122,
+  Ecstasy: 197,
+  Cesium, 336
 }
 
  async function itemnames(){
-   console.log("vole")
   var APIInput = document.getElementById('APIInput').value;
   const ids = Object.values(itemIds).join(",")
   const res = await fetch(
     `https://api.torn.com/v2/torn/${ids}/items?sort=ASC&key=${APIInput}`)
   const data = await res.json()
   const itemPrices = {}
-   
+  const points = await (await fetch(
+     `https://api.torn.com/torn/?key=${APIInput}&comment=SpendTheir&selections=stats`)).json()
+  
+  itemPrices.Points = points.stats.points_averagecost
   data.items.forEach(item => {
     const name = Object.keys(itemIds).find(
       key => itemIds[key] === item.id)
@@ -64,7 +68,12 @@ console.log(ids)
    console.log(itemPrices)
 // Math prices
      const mathprices = {
-       LTXanax: itemPrices.Xanax * 1000,
+       Refill: itemPrices.Points * 30,
+       MuseumSet: itemPrices.Points * 10,
+       LTRefill: itemPrices.Refill * 365 * 5,
+       LTXanax: itemPrices.Xanax * 5475,
+       HJ: itemPrices.Xanax * 4 + itemPrices.EDVD * 8 + itemPrices.Ecstasy + mathprices.Refill,
+       DB: itemPrices.Cesium * 100
      }
    console.log(mathprices)
      Object.entries(mathprices).forEach(([id, price]) => {
