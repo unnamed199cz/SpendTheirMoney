@@ -118,8 +118,8 @@ button#API {
     min-width: 30%; /* ensures items don’t shrink too small */
   }
   .item img {
-    max-width: 100%;   /* image fits inside the flex item */
-    height: auto;
+    max-width: 100px;   /* image fits inside the flex item */
+    height: 50px;
   }
 h1 {
   text-align: center;

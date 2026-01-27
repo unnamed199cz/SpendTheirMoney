@@ -41,7 +41,9 @@ const itemIds = {
   MCache: 1121,
   HCache: 1122,
   Ecstasy: 197,
-  Cesium, 336
+  Cesium: 336,
+  Wolverine: 261,
+  Jacket: 48,
 }
 
  async function itemnames(){
@@ -73,7 +75,9 @@ console.log(ids)
        LTRefill: itemPrices.Refill * 365 * 5,
        LTXanax: itemPrices.Xanax * 5475,
        HJ: itemPrices.Xanax * 4 + itemPrices.EDVD * 8 + itemPrices.Ecstasy + mathprices.Refill,
-       DB: itemPrices.Cesium * 100
+       DB: itemPrices.Cesium * 100,
+       SkipEdu: itemPrices.Carols * 3311, // 7years times 0,9 0,8 0,9 0.5(you skip but have to wait for 5mins and Booster CD)not exact
+       Merit: itemPrices.Points * 300
      }
    console.log(mathprices)
      Object.entries(mathprices).forEach(([id, price]) => {
