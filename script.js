@@ -55,7 +55,6 @@ const itemIds = {
   const itemPrices = {}
   const points = await (await fetch(
      `https://api.torn.com/torn/?key=${APIInput}&comment=SpendTheir&selections=stats`)).json()
-  
   itemPrices.Points = points.stats.points_averagecost
   data.items.forEach(item => {
     const name = Object.keys(itemIds).find(
