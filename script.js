@@ -47,6 +47,7 @@ const itemIds = {
 }
 
  async function itemnames(){
+ 
   const ids = Object.values(itemIds).join(",")
   const res = await fetch(   `https://api.torn.com/v2/torn/${ids}/items?sort=ASC&key=${APIInput}`)
   const data = await res.json()
@@ -69,7 +70,7 @@ const itemIds = {
      const mathprices = {
        Refill: Refill,
        MuseumSet: itemPrices.Points * 10,
-       LTRefill: itemPrices.Refill * 365 * 5,
+       LTRefill: Refill * 365 * 5,
        LTXanax: itemPrices.Xanax * 5475,
        HJ: itemPrices.Xanax * 4 + itemPrices.EDVD * 8 + itemPrices.Ecstasy + Refill,
        DB: itemPrices.Cesium * 100,
@@ -130,7 +131,7 @@ let APIInput;
 function APICall() {
   APIInput = document.getElementById('APIInput').value;
     if (!(APIInput.length === 16)) 
-      console.log("Not an API key")
+      console.log("Not an valid API key")
     else {
       fetch(`https://api.torn.com/v2/user/hof?comment=SpendTheirNW&key=${APIInput}`)
       .then (response => response.json())
@@ -142,14 +143,15 @@ function APICall() {
       itemnames()}}
 
 function APINameCall() {
-  var APIInput = document.getElementById('APIInput').value;
+  APIInput = document.getElementById('APIInput').value
   let APINameInput = document.getElementById('APINameInput').value;
     if (isNaN(Number(APINameInput)) || APINameInput === "")
       console.log("Not an ID, use numbers.")
     else {
+      itemnames()
       console.log(`Player's ID: ${APINameInput}`)
       console.log(`API key: ${APIInput}`)
-      fetch(`https://api.torn.com/v2/user/${APINameInput}/personalstats?stat=networth&comment=SpendTheirNW&key=${APIInput}`)
+  fetch(`https://api.torn.com/v2/user/${APINameInput}/personalstats?stat=networth&comment=SpendTheirNW&key=${APIInput}`)
       .then (response => response.json())
       .catch ((error) => console.log(error))
       .then (data => {
@@ -164,8 +166,7 @@ function APINameCall() {
       var NameOfUser = data.profile.name
       console.log(`Player's name: ${NameOfUser}`)
       document.getElementById("NameApiCall").innerText = NameOfUser
-})
-    }}
+})}}
 
 /// API function end
 
