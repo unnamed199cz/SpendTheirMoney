@@ -45,13 +45,8 @@ const itemIds = {
   Wolverine: 261,
   Jacket: 48,
 }
-let itemnamesstarted = false
+
  async function itemnames(){
-  if (itemnamesstarted === true) 
-   return
-  else {
-  itemnamesstarted = true
-  console.log("Item names started")
   const ids = Object.values(itemIds).join(",")
   const res = await fetch(   `https://api.torn.com/v2/torn/${ids}/items?sort=ASC&key=${APIInput}`)
   const data = await res.json()
@@ -86,7 +81,7 @@ let itemnamesstarted = false
        const a = document.getElementById(`itemprice_${id}`)
        if (!a) return
        {a.textContent = new Intl.NumberFormat().format(price)}})
-    sort()}}
+    sort()}
 /// Prices of items end --------------------------------------------
 /// Auto price sort start
  function sort() {
@@ -148,12 +143,12 @@ function APICall() {
 
 function APINameCall() {
   APIInput = document.getElementById('APIInput').value
+  if (!(APIInput.length === 16)) 
+    console.log("Not an valid API key")
   let APINameInput = document.getElementById('APINameInput').value;
     if (isNaN(Number(APINameInput)) || APINameInput === "")
       console.log("Not an ID, use numbers.")
     else {
-      itemnames()
-      
       console.log(`Player's ID: ${APINameInput}`)
       console.log(`API key: ${APIInput}`)
   fetch(`https://api.torn.com/v2/user/${APINameInput}/personalstats?stat=networth&comment=SpendTheirNW&key=${APIInput}`)
@@ -171,7 +166,8 @@ function APINameCall() {
       var NameOfUser = data.profile.name
       console.log(`Player's name: ${NameOfUser}`)
       document.getElementById("NameApiCall").innerText = NameOfUser
-})}}
+})
+    }}
 
 /// API function end
 
