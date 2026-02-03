@@ -47,33 +47,31 @@ const itemIds = {
 }
 
  async function itemnames(){
-  var APIInput = document.getElementById('APIInput').value;
   const ids = Object.values(itemIds).join(",")
-  const res = await fetch(
-    `https://api.torn.com/v2/torn/${ids}/items?sort=ASC&key=${APIInput}`)
+  const res = await fetch(   `https://api.torn.com/v2/torn/${ids}/items?sort=ASC&key=${APIInput}`)
   const data = await res.json()
   const itemPrices = {}
   const points = await (await fetch(
      `https://api.torn.com/torn/?key=${APIInput}&comment=SpendTheir&selections=stats`)).json()
   itemPrices.Points = points.stats.points_averagecost
   data.items.forEach(item => {
-    const name = Object.keys(itemIds).find(
-      key => itemIds[key] === item.id)
-    if (!name) return
-    itemPrices[name] = item.value.market_price})
-console.log(ids)
-  Object.entries(itemPrices).forEach(([name, price]) => {
-    const el = document.getElementById(`itemprice_${name}`)
+    const ID = Object.keys(itemIds).find(
+        ID => itemIds[ID] === item.id)
+    if (!ID) return
+    itemPrices[ID] = item.value.market_price})
+  Object.entries(itemPrices).forEach(([ITEMNAME, price]) => {
+    const el = document.getElementById(`itemprice_${ITEMNAME}`)
     if (!el) return
     el.textContent = new Intl.NumberFormat().format(price)})
    console.log(itemPrices)
 // Math prices
+     const Refill = itemPrices.Points * 30
      const mathprices = {
-       Refill: itemPrices.Points * 30,
+       Refill: Refill,
        MuseumSet: itemPrices.Points * 10,
        LTRefill: itemPrices.Refill * 365 * 5,
        LTXanax: itemPrices.Xanax * 5475,
-       HJ: itemPrices.Xanax * 4 + itemPrices.EDVD * 8 + itemPrices.Ecstasy + mathprices.Refill,
+       HJ: itemPrices.Xanax * 4 + itemPrices.EDVD * 8 + itemPrices.Ecstasy + Refill,
        DB: itemPrices.Cesium * 100,
        SkipEdu: itemPrices.Carols * 3311, // 7years times 0,9 0,8 0,9 0.5(you skip but have to wait for 5mins and Booster CD)not exact
        Merit: itemPrices.Points * 300
@@ -127,8 +125,10 @@ function APIRules() {
 }
 /// API toggle end ------------------------------------------------
 /// API function start
+let APIInput;
+
 function APICall() {
-  var APIInput = document.getElementById('APIInput').value;
+  APIInput = document.getElementById('APIInput').value;
     if (!(APIInput.length === 16)) 
       console.log("Not an API key")
     else {
@@ -138,13 +138,13 @@ function APICall() {
       .then (data => {
         var MoneyOfUser = data.hof.networth.value
         console.log(`API's owner networth: ${MoneyOfUser}`)
-        document.getElementById("balance").innerText = new Intl.NumberFormat().format(MoneyOfUser)
-})}
-}
+        document.getElementById("balance").innerText = new Intl.NumberFormat().format(MoneyOfUser)})
+      itemnames()}}
+
 function APINameCall() {
   var APIInput = document.getElementById('APIInput').value;
   let APINameInput = document.getElementById('APINameInput').value;
-    if (isNaN(Number(APINameInput)))
+    if (isNaN(Number(APINameInput)) || APINameInput === "")
       console.log("Not an ID, use numbers.")
     else {
       console.log(`Player's ID: ${APINameInput}`)
