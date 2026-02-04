@@ -139,7 +139,9 @@ function APICall() {
         var MoneyOfUser = data.hof.networth.value
         console.log(`API's owner networth: ${MoneyOfUser}`)
         document.getElementById("balance").innerText = new Intl.NumberFormat().format(MoneyOfUser)})
-      itemnames()}}
+      itemnames()
+      document.getElementById('APINameButton').disabled = false
+      document.getElementById('APINameInput').disabled = false}}
 
 function APINameCall() {
   APIInput = document.getElementById('APIInput').value

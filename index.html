@@ -13,9 +13,9 @@
 
 </head>
 <body>
-  <input min="1" type="number" placeholder="USER ID" class="apiinput" id=APINameInput ></input>
+  <input min="1" disabled type="number" placeholder="Submit API key to use ID" class="apiinput" id=APINameInput ></input>
   <input maxlength="16" placeholder="API KEY" class="apiinput" id=APIInput></input>
-  <br><button onclick="APINameCall()" class="confirmbutton">Confirm name</button>
+  <br><button onclick="APINameCall()" id="APINameButton" disabled class="confirmbutton">Confirm name</button>
   <button onclick="APICall()" class="confirmbutton">Confirm API</button>
   <div class="toprightbuttons">
     <button title="Button for API input show" id="APIInfo" onclick="APIRules()"></button>
