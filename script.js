@@ -136,12 +136,18 @@ function APICall() {
       .then (response => response.json())
       .catch ((error) => console.log(error))
       .then (data => {
+        if (data.error) {
+          console.log("API ERROR:", data.error.error)
+          return}
+        else {
         var MoneyOfUser = data.hof.networth.value
         console.log(`API's owner networth: ${MoneyOfUser}`)
-        document.getElementById("balance").innerText = new Intl.NumberFormat().format(MoneyOfUser)})
-      itemnames()
-      document.getElementById('APINameButton').disabled = false
-      document.getElementById('APINameInput').disabled = false}}
+        document.getElementById("balance").innerText = new Intl.NumberFormat().format(MoneyOfUser)
+        itemnames()
+        Object.assign(document.getElementById("APINameInput"), {
+          disabled: false, placeholder: "Use ID of any player"})
+        document.getElementById("APINameButton").disabled = false}})}}
+
 
 function APINameCall() {
   APIInput = document.getElementById('APIInput').value
@@ -160,7 +166,7 @@ function APINameCall() {
         var MoneyOfUser = data.personalstats[0].value
         console.log(`Player's networth: ${MoneyOfUser}`)
         document.getElementById("balance").innerText = new Intl.NumberFormat().format(MoneyOfUser)})
-      
+
       fetch(`https://api.torn.com/v2/user/${APINameInput}/basic?comment=SpendTheirNW&key=${APIInput}`)
       .then (response => response.json())
       .catch ((error) => console.log(error))
