@@ -137,7 +137,7 @@ function APICall() {
       .catch ((error) => console.log(error))
       .then (data => {
         if (data.error) {
-          console.log("API ERROR:", data.error.error)
+          alert("API ERROR:", data.error.error)
           return}
         else {
         var MoneyOfUser = data.hof.networth.value
@@ -147,7 +147,6 @@ function APICall() {
         Object.assign(document.getElementById("APINameInput"), {
           disabled: false, placeholder: "Use ID of any player"})
         document.getElementById("APINameButton").disabled = false}})}}
-
 
 function APINameCall() {
   APIInput = document.getElementById('APIInput').value
